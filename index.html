@@ -24,21 +24,24 @@ circle {
 <script>
   const show = e => e.style.display = '';
   const hide = e => e.style.display = 'none';
-  const roll = () => {
+  const rollNoAnimation = () => {
     const n = Math.round(Math.random() * 5) + 1;
+    document.querySelectorAll('.dot').forEach(hide);
+    document.querySelectorAll('.n-' + n).forEach(show);
+  }
+  const roll = () => {
     const svgClassList = document.querySelector('svg').classList;
     svgClassList.add('rock');
     setTimeout(() => {
       svgClassList.remove('rock');
-      document.querySelectorAll('.dot').forEach(hide);
-      document.querySelectorAll('.n-' + n).forEach(show);
+      rollNoAnimation();
     }, 200);
   }
 </script>
 </head>
 <body onclick="roll()">
   <div id="container">
-    <svg viewBox="0 0 100 100" class="rock">
+    <svg viewBox="0 0 100 100">
       <rect stroke-linejoin="round" x="10" y="10" width="80" height="80" stroke="#111" fill="#eee" stroke-width="3"/>
       <circle cx="30" cy="30" style="display: none" class="dot n-4 n-5" />
       <circle cx="70" cy="30" style="display: none" class="dot n-2 n-3 n-4 n-5" />
@@ -55,7 +58,7 @@ circle {
     </svg>
   </div>
   <script>
-    roll()
+    rollNoAnimation();
   </script>
 </body>
 </html>
