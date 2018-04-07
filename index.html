@@ -24,7 +24,7 @@ circle {
 <script>
   const show = e => e.style.display = '';
   const hide = e => e.style.display = 'none';
-  const rollNoAnimation = () => {
+  const updateDots = () => {
     const n = Math.round(Math.random() * 5) + 1;
     requestAnimationFrame(() => {
       document.querySelectorAll('.dot').forEach(hide);
@@ -36,7 +36,7 @@ circle {
     svgClassList.add('rock');
     setTimeout(() => {
       svgClassList.remove('rock');
-      rollNoAnimation();
+      updateDots();
     }, 200);
   }
 </script>
@@ -60,7 +60,7 @@ circle {
     </svg>
   </div>
   <script>
-    rollNoAnimation();
+    updateDots();
   </script>
 </body>
 </html>
