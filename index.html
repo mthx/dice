@@ -5,7 +5,7 @@
 <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png"/>
 <meta charset=utf-8>
 <title>Six sided dice</title>
-<style type="text/css">
+<style>
 html, body { margin:0; padding:0; }
 svg { 
   position:fixed; top:0; left:0; height:100%; width:100%; 
@@ -16,7 +16,7 @@ svg {
   transform: rotate(3deg);
 }
 </style>
-<script type="text/javascript">
+<script>
   const show = e => e.style.display = '';
   const hide = e => e.style.display = 'none';
   const roll = () => {
@@ -49,7 +49,7 @@ svg {
       <circle cx="65" cy="73" r="5" stroke="black" fill="solid" stroke-width="9" style="display: none" class="dot n-6" />
     </svg>
   </div>
-  <script type="text/javascript">
+  <script>
     roll()
   </script>
 </body>
