@@ -34,6 +34,29 @@ circle {
       document.querySelectorAll('.n-' + n).forEach(show);
     }, 200);
   }
+  const detectShake = callback => {
+    const threshold = 20;
+    if (window.DeviceMotionEvent) {
+      // x1 is most recent sample, x2 is from last time we compared
+      var x1 = 0, y1 = 0, z1 = 0, x2 = 0, y2 = 0, z2 = 0;
+      window.addEventListener('devicemotion', e => {
+        const a = e.accelerationIncludingGravity;
+        x1 = a.x;
+        y1 = a.y;
+        z1 = a.z;
+      });
+      setInterval(() => {
+        const change = Math.abs(x1 - x2 + y1 - y2 + z1 - z2);
+        if (change > threshold) {
+          callback();
+        }
+        x2 = x1;
+        y2 = y1;
+        z2 = z1;
+      });
+    }
+  };
+  detectShake(roll);
 </script>
 </head>
 <body onclick="roll()">
