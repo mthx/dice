@@ -60,7 +60,12 @@ circle {
     </svg>
   </div>
   <script>
-    updateDots();
+    if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+      roll();
+    }
+    else {
+      updateDots();
+    }
   </script>
 </body>
 </html>
