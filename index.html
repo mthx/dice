@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang=en>
+<head>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png"/>
+<meta charset=utf-8>
+<title>Six sided dice</title>
+<style type="text/css">
+html, body { margin:0; padding:0; }
+svg { position:fixed; top:0; left:0; height:100%; width:100%; 
+  transition: all 0.2s;
+  transition-timing: ease-in-out;
+}
+.rock-right {
+  transform: rotate(3deg);
+}
+</style>
+<script type="text/javascript">
+  function show(e) {
+    e.style.display = '';
+  }
+  function hide(e) {
+    e.style.display = 'none';
+  }
+  function roll() {
+    var n = Math.round(Math.random() * 5) + 1;
+    svg = document.querySelector('svg');
+    svg.classList.add('rock-right');
+    var timeout = 200;
+    setTimeout(function() {
+      svg.classList.remove('rock-right');
+      document.querySelectorAll('.dot').forEach(hide);
+      document.querySelectorAll('.n-' + n).forEach(show);
+      setTimeout(function() {
+      }, timeout);
+    }, timeout);
+  }
+</script>
+</head>
+<body onclick="roll()">
+  <div id="container">
+    <svg viewBox="0 0 100 100" class="rock-right">
+      <rect stroke-linejoin="round" x="10" y="10" width="80" height="80" stroke="black" fill="transparent" stroke-width="3"/>
+      <circle cx="30" cy="30" r="5" stroke="black" fill="solid" stroke-width="9" style="display: none" class="dot n-4 n-5" />
+      <circle cx="70" cy="30" r="5" stroke="black" fill="solid" stroke-width="9" style="display: none" class="dot n-2 n-3 n-4 n-5" />
+      <circle cx="50" cy="50" r="5" stroke="black" fill="solid" stroke-width="9" style="display: none" class="dot n-1 n-3 n-5" />
+      <circle cx="30" cy="70" r="5" stroke="black" fill="solid" stroke-width="9" style="display: none" class="dot n-2 n-3 n-4 n-5" />
+      <circle cx="70" cy="70" r="5" stroke="black" fill="solid" stroke-width="9" style="display: none" class="dot n-4 n-5" />
+      
+      <circle cx="35" cy="27" r="5" stroke="black" fill="solid" stroke-width="9" style="display: none" class="dot n-6" />
+      <circle cx="65" cy="27" r="5" stroke="black" fill="solid" stroke-width="9" style="display: none" class="dot n-6" />
+      <circle cx="35" cy="50" r="5" stroke="black" fill="solid" stroke-width="9" style="display: none" class="dot n-6" />
+      <circle cx="65" cy="50" r="5" stroke="black" fill="solid" stroke-width="9" style="display: none" class="dot n-6" />
+      <circle cx="35" cy="73" r="5" stroke="black" fill="solid" stroke-width="9" style="display: none" class="dot n-6" />
+      <circle cx="65" cy="73" r="5" stroke="black" fill="solid" stroke-width="9" style="display: none" class="dot n-6" />
+    </svg>
+  </div>
+  <script type="text/javascript">
+    roll()
+  </script>
+</body>
+</html>
