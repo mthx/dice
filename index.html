@@ -26,8 +26,10 @@ circle {
   const hide = e => e.style.display = 'none';
   const rollNoAnimation = () => {
     const n = Math.round(Math.random() * 5) + 1;
-    document.querySelectorAll('.dot').forEach(hide);
-    document.querySelectorAll('.n-' + n).forEach(show);
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.dot').forEach(hide);
+      document.querySelectorAll('.n-' + n).forEach(show);
+    });
   }
   const roll = () => {
     const svgClassList = document.querySelector('svg').classList;
