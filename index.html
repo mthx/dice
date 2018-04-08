@@ -69,6 +69,12 @@ circle {
     else {
       updateDots();
     }
+    document.addEventListener('keypress', e => {
+      if (e.key == 'Enter' || e.key == ' ') {
+        e.preventDefault();
+        roll();
+      }
+    });
   </script>
 </body>
 </html>
