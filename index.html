@@ -21,6 +21,9 @@ circle {
 .rock {
   transform: rotate(3deg);
 }
+#container {
+  cursor: pointer;
+}
 </style>
 <script>
   const show = e => e.style.display = '';
@@ -42,8 +45,8 @@ circle {
   }
 </script>
 </head>
-<body onclick="roll()">
-  <div id="container">
+<body>
+  <div id="container" onclick="roll()">
     <svg viewBox="0 0 100 100">
       <rect stroke-linejoin="round" x="10" y="10" width="80" height="80" stroke="#111" fill="#eee" stroke-width="3"/>
       <circle cx="30" cy="30" style="display: none" class="dot n-4 n-5" />
